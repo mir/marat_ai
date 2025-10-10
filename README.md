@@ -1,20 +1,21 @@
 # Marat AI
 
-A comprehensive collection of development workflow tools for Claude Code, featuring specialized agents, custom commands, and MCP integrations to streamline your software development process.
+A comprehensive collection of development workflow tools for Claude Code and [OpenCode](https://opencode.ai), featuring specialized agents, custom commands, and MCP integrations to streamline your software development process.
 
 ## Overview
 
-Marat AI provides a powerful toolkit that enhances Claude Code with:
+Marat AI provides a powerful toolkit that enhances Claude Code and OpenCode with:
 
 - **Specialized Agents**: Autonomous sub-agents for complex tasks like codebase search, code review, specification creation, and web research
 - **Custom Commands**: Slash commands for common workflows including auto-commit, feature documentation, and reporting
 - **MCP Integrations**: Deep GitHub repository and documentation search capabilities
+- **OpenCode Configurations**: Pre-configured settings optimized for development workflows
 
 ## Getting Started
 
 ### Prerequisites
 
-1. Install [Claude Code](https://claude.com/claude-code)
+1. Install [Claude Code](https://claude.com/claude-code) or [OpenCode](https://opencode.ai)
 2. Copy the workflow files to your project:
    ```bash
    cp agent/*.md command/*.md /path/to/your/project/.claude/
@@ -51,9 +52,20 @@ Custom slash commands provide quick access to common workflows:
 
 ### MCPs
 
-Model Context Protocol integrations extend Claude Code's capabilities:
+Model Context Protocol integrations extend Claude Code and OpenCode capabilities:
 
 - **deepwiki**: Search GitHub repositories and their documentation (see `opencode.json`)
+
+### OpenCode Configuration
+
+The `opencode.json` file contains pre-configured settings for OpenCode, including:
+
+- MCP server configurations (deepwiki)
+- Custom agent definitions
+- Slash command mappings
+- Optimized settings for development workflows
+
+For more information about OpenCode configuration, see the [OpenCode documentation](https://opencode.ai/docs).
 
 ## Example Workflow
 
