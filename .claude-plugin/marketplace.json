@@ -1,12 +1,12 @@
 {
-  "name": "marat_ai-marketplace",
+  "name": "marat_ai marketplace",
   "owner": {
     "name": "marat.yuldashev"
   },
   "plugins": [
     {
-      "name": "claude-marat_ai",
-      "source": "./claude-marat_ai",
+      "name": "marat_ai",
+      "source": "./claude_marat_ai",
       "description": "AI-powered development workflow automation with specialized agents for project search, code review, specification creation, and web research"
     }
   ]

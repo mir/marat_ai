@@ -1,5 +1,5 @@
 {
-  "name": "claude_marat_ai",
+  "name": "marat_ai",
   "version": "1.0.0",
   "description": "AI-powered development workflow automation with specialized agents for project search, code review, specification creation, and web research. Includes smart commit commands and weekly reporting.",
   "author": "marat.yuldashev"
