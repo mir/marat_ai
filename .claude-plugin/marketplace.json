@@ -1,0 +1,10 @@
+{
+  "name": "maratai-marketplace",
+  "owner": "marat.yuldashev",
+  "plugins": [
+    {
+      "name": "claude-maratai",
+      "path": "claude-maratai"
+    }
+  ]
+}
