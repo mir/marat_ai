@@ -13,22 +13,40 @@ Marat AI provides a powerful toolkit that enhances Claude Code and OpenCode with
 
 ## Getting Started
 
-### Prerequisites
+### For Claude Code Users
 
-1. Install [Claude Code](https://claude.com/claude-code) or [OpenCode](https://opencode.ai)
-2. Copy the workflow files to your project:
+Claude Code uses a plugin system. To install Marat AI directly from GitHub:
+
+1. Install [Claude Code](https://claude.com/claude-code)
+2. Start Claude Code and add the GitHub marketplace:
+   ```
+   /plugin marketplace add mir/marat_ai
+   ```
+3. Install the plugin:
+
+For more information about Claude Code plugins, see the [plugins documentation](https://docs.claude.com/en/docs/claude-code/plugins).
+
+### For OpenCode Users
+
+OpenCode uses a simpler configuration approach:
+
+1. Install [OpenCode](https://opencode.ai)
+2. Copy the configuration files to your project:
    ```bash
-   cp agent/*.md command/*.md /path/to/your/project/.claude/
+   cp -r opencode/opencode.json /path/to/your/project/.opencode/
+   cp -r agent/*.md command/*.md /path/to/your/project/.opencode/
    ```
 
    Or install globally:
    ```bash
-   cp agent/*.md command/*.md ~/.config/claude/
+   cp -r opencode/opencode.json agent/*.md command/*.md ~/.config/opencode/
    ```
+
+For more information about OpenCode configuration, see the [OpenCode documentation](https://opencode.ai/docs).
 
 ### Quick Start
 
-Once installed, you can immediately use any of the available commands or agents in your Claude Code sessions.
+Once installed, you can immediately use any of the available commands or agents in your sessions.
 
 ## Features
 
@@ -58,11 +76,9 @@ Model Context Protocol integrations extend Claude Code and OpenCode capabilities
 
 ### OpenCode Configuration
 
-The `opencode.json` file contains pre-configured settings for OpenCode, including:
+The `opencode/opencode.json` file contains pre-configured settings for OpenCode, including:
 
 - MCP server configurations (deepwiki)
-- Custom agent definitions
-- Slash command mappings
 - Optimized settings for development workflows
 
 For more information about OpenCode configuration, see the [OpenCode documentation](https://opencode.ai/docs).
@@ -134,17 +150,23 @@ At the end of the week, generate a summary report:
 
 ```
 marat_ai/
-├── agent/          # Specialized agent definitions
-│   ├── project-search.md
-│   ├── review.md
-│   ├── spec.md
-│   └── web-research.md
-├── command/        # Custom slash commands
-│   ├── commit.md
-│   ├── prepare-feature.md
-│   ├── span.md
-│   └── week_report.md
-└── opencode.json   # MCP configuration
+├── claude_marat_ai/           # Claude Code plugin
+│   ├── .claude-plugin/
+│   │   └── plugin.json        # Plugin manifest
+│   ├── agents/                # Specialized agent definitions
+│   │   ├── project-search.md
+│   │   ├── review.md
+│   │   ├── spec.md
+│   │   └── web-research.md
+│   ├── commands/              # Custom slash commands
+│   │   ├── commit.md
+│   │   ├── prepare-feature.md
+│   │   └── week_report.md
+│   └── .mcp.json              # MCP configuration for plugin
+├── opencode/                  # OpenCode configuration
+│   └── opencode.json          # OpenCode settings and MCP config
+└── .claude-plugin/
+    └── marketplace.json       # Plugin marketplace manifest
 ```
 
 ## Best Practices
