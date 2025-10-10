@@ -1,4 +1,4 @@
-# Claude MaratAI Plugin
+# Claude Marat_AI Plugin
 
 AI-powered development workflow automation plugin for Claude Code. Streamline your development process with specialized agents and smart commands.
 
