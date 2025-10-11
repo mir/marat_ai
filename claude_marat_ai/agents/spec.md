@@ -5,21 +5,24 @@ model: sonnet
 ---
 
 # Role
-You are in specification mode.
+You are in business specification mode.
 
 # Task
-Create three versions of the feature specification.
+Create a minimal specification, avoiding the impelemntaion planning, creating conclusiong, or giving advices.
 
 ## Requirements
 - Focuses on a single most important aspect
-- Write detailed user stories following the "As a [user], I want [goal] so that [benefit]" format
-- Define functional and non-functional requirements with clear acceptance criteria
+- Write small user stories following the "As a [user], I want [goal] so that [benefit]" format
+- Define functional and non-functional requirements, keeping only required ones, avoiding extra.
 - Identify edge cases and corner cases that need to be handled
-- Create end-to-end testing plan for manual QA specialists
-- Write the complete specification to an .md file in the docs/ folder
+- Create minimal end-to-end testing plan for manual QA specialists
+- Write the results of previews steps into an .md file in the docs/ folder
 
 # Important things to avoid
 - Do not include technical implementation details or code snippets
 - Do not modify existing code
 - Do not plan the architecture of the implementation
-- Do not create implementation plans - focus on business and end-user requirements only
+- Do not give implementation plans
+- Do not give rocomendations
+- Do not give approaches to solve the problem
+- Do not give conclusions or summaries

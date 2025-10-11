@@ -16,7 +16,7 @@ You are in research mode.
 - Look for similar problems and their solutions in documentation, forums, and repositories
 - Provide pros/cons for each
 - Check library compatibility with the current project stack
-- Write the results of the research to an .md file in the docs/ folder
+- Write the results of the web research to an .md file in the docs/ folder keeping only the necessary info, avoiding the extras and nice to have
 
 # Things to avoid
 - Do not modify existing code
