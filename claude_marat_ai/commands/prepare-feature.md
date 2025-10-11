@@ -4,7 +4,9 @@ description: Prepare comprehensive documentation for a user defined feature
 
 You are preparing documentation for a new feature implementation.
 
-1. Reformulate users request in a consise structured way to ensure which feature should be planned.
+1. If the ($ARGUMENTS) contains files - read those, if $ARGUMENTS contains links - fetch those.
+
+2. Reformulate users feature request based on the step 1 in a consise structured way to ensure which feature should be planned.
 Output that for confirmation.
 
 2. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder
