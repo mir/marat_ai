@@ -27,7 +27,7 @@ agent: build
    - Avoid extra functionality
    - **Each subtask MUST include implementation details:**
      - Relevant file links with line numbers: [file.ts:42-51](path/to/file.ts#L42-L51)
-     - Code snippets showing existing patterns to follow
+     - Code snippets showing existing patterns to follow, only if it is absolutely necessary and text description is not enough
      - API signatures or interfaces to implement
      - Library documentation references if using external dependencies
      - Database schema details if modifying data structures
@@ -50,13 +50,6 @@ agent: build
 <parallel>
 - [ ] Task that can run in parallel with other tasks in this block
   - References: [file:42](path/to/file#L42), [docs](https://example.com/docs)
-  - Implementation details:
-    ```typescript
-    // Example pattern from existing code to follow
-    interface ExistingPattern {
-      prop: string;
-    }
-    ```
 - [ ] Another independent task
   - References: [another-file](path/to/another-file), [spec](path/to/spec.md)
   - Implementation: Follow the pattern in [another-file:15-30](path/to/another-file#L15-L30)
@@ -66,22 +59,10 @@ agent: build
   - References: [main-file:100](path/to/main-file#L100)
   - [ ] Subtask 1: Create interface
     - File: [types.ts](path/to/types.ts)
-    - Add interface following existing pattern:
-      ```typescript
-      export interface NewFeature {
-        id: string;
-        name: string;
-      }
-      ```
   - [ ] Subtask 2: Implement handler
     - File: [handlers.ts:50](path/to/handlers.ts#L50)
     - Add after existing handlers
     - Use dependency injection pattern from [handlers.ts:20-35](path/to/handlers.ts#L20-L35)
-    ```typescript
-    async function handleNewFeature(input: NewFeature): Promise<Result> {
-      // Implementation here
-    }
-    ```
 
 <parallel>
 - [ ] Another set of parallel tasks
