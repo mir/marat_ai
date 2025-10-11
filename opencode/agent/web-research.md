@@ -25,9 +25,6 @@ Your final output document should follow this structure:
 ## Table of Contents
 - [Relevant sections...]
 
-## Overview
-[1-2 sentence summary of the research findings]
-
 ## Solutions Found
 
 ### [Solution/Library/Tool Name 1]

@@ -34,9 +34,6 @@ The specification .md file must follow this minimal structure:
 - [Edge Cases](#edge-cases)
 - [Manual Testing Plan](#manual-testing-plan) (if applicable)
 
-## Overview
-Brief description of the feature and its purpose.
-
 ## User Stories
 *(Skip this section if the feature does not change user experience)*
 
