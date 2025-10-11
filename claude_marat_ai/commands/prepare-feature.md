@@ -1,24 +1,27 @@
 ---
 description: Prepare comprehensive documentation for a user defined feature
+argument-hint: <path-to-feature.md>
 ---
 
 You are preparing documentation for a new feature implementation.
 
-1. If the ($ARGUMENTS) contains files - read those, if $ARGUMENTS contains links - fetch those.
+The user has created a feature description in a markdown file and will provide the file path as an argument.
 
-2. Reformulate users feature request based on the step 1 in a consise structured way to ensure which feature should be planned.
+1. Read the feature description file from $ARGUMENTS path.
+
+2. Reformulate the user's feature request based on the file contents in a concise structured way to ensure which feature should be planned.
 Output that for confirmation.
 
-2. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder
+3. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder:
 <parallel tasks>
   **Project Search Analysis** (use project-search subagent)
   **Web Research** (use web-research subagent)
-  **Specification Creation** (use spec subagent):
+  **Specification Creation** (use spec subagent)
 </parallel tasks>
 
-3. Check that all parallel tasks generated corresponidng .md files. Restart the tasks that failed.
+4. Check that all parallel tasks generated corresponding .md files. Restart the tasks that failed.
 
-4. Create a single .md file with implementation plan in the form of - [ ] tasks and subtasks. Follow the rules:
+5. Create a single .md file with implementation plan in the form of - [ ] tasks and subtasks. Follow the rules:
   - Do not estimate time to implement
-  - Add references to key files, specs, and docs.
-  - Wrap up in <parallel>...</parallel> tasks whenever possible
+  - Add references to key files, specs, and docs
+  - Wrap up in <parallel>...</parallel> tags whenever possible
