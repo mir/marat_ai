@@ -1,5 +1,5 @@
 ---
-description: "Auto-commit with smart branching"
+description: Auto-commit with smart branching
 agent: build
 ---
 

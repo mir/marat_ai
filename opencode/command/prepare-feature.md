@@ -1,5 +1,6 @@
 ---
 description: Prepare minimal necessary documentation for a user defined feature
+agent: build
 ---
 
 # Task
@@ -8,7 +9,7 @@ You are preparing documentation for a new feature implementation.
 # Instructions
 0. The user has created a feature description in a markdown file and will provide the file path as an argument.
 If the .md file is not mentioned, ask user to create one in docs/<feature-name>/0_idea.md
-1. Read the feature description file from $ARGUMENTS path.
+1. Read the feature description file.
 2. Reformulate the user's feature request based on the file contents in a concise structured way to ensure which feature should be planned.
 Output that for confirmation.
 3. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder:
@@ -27,4 +28,3 @@ When formulating tasks to agents do not ask agents to create implementation plan
   - Avoid extra funcitonality
   - Keep only necessary tasks
   - Wrap up in <parallel>...</parallel> tags whenever possible
-  
