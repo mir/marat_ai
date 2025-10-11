@@ -16,7 +16,7 @@ Output that for confirmation.
 <parallel tasks>
   **Project Search Analysis** (use project-search subagent)
   **Web Research** (use web-research subagent)
-  **Specification Creation** (use spec subagent)
+  **Specification Creation** (use spec subagent to create business user-experience based spec)
 </parallel tasks>
 
 4. Check that all parallel tasks generated corresponding .md files. Restart the tasks that failed.
