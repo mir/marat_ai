@@ -61,15 +61,16 @@ allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*),
 - [ ] Sequential task that depends on previous tasks
   - References: [main-file:100](path/to/main-file#L100)
   - [ ] Subtask 1: Create interface
-    - File: [types.ts](path/to/types.ts)
+    - File: [file](path/to/file)
     - Check that backend runs without errors according to AGENTS.md
-    - Test with curl sending a request with message='Say hi'
+    - Test backend sending a request with message='Say hi' according to AGENTS.md
   - [ ] Subtask 2: Implement handler
-    - File: [handlers.ts:50](path/to/handlers.ts#L50)
+    - File: [handlers:50](path/to/handlers#L50)
     - Add after existing handlers
-    - Use dependency injection pattern from [handlers.ts:20-35](path/to/handlers.ts#L20-L35)
+    - Use dependency injection pattern from [handlers:20-35](path/to/handlers#L20-L35)
     - Run linting and formatting using guides from AGENTS.md
     - Check that fronend runs without errors according to AGENTS.md
+    - Create a test and run it using instructions in AGENTS.md
 
 <parallel>
 - [ ] Another set of parallel tasks
@@ -79,8 +80,4 @@ allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*),
   - References: [utils](path/to/utils)
   - Add utility function following naming convention in [utils:5-8](path/to/utils#L5-L8)
 </parallel>
-
-## Testing
-- [ ] Integration tests
-- [ ] Manual testing checklist
 ```

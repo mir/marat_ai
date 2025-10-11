@@ -4,10 +4,6 @@
       "type": "remote",
       "url": "https://mcp.deepwiki.com/sse",
       "enabled": true
-    },
-    "chrome-devtools": {
-      "command": "npx",
-      "args": ["chrome-devtools-mcp@latest", "--browserUrl", "localhost:9222"]
     }
   }
 }
