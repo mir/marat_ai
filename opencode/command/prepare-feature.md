@@ -1,23 +1,29 @@
 ---
-description: Prepare comprehensive documentation for a user defined feature
-mode: command
+description: Prepare minimal necessary documentation for a user defined feature
 ---
 
+# Task
 You are preparing documentation for a new feature implementation.
 
-1. Reformulate users request in a consise structured way to ensure which feature should be planned.
+# Instructions
+0. The user has created a feature description in a markdown file and will provide the file path as an argument.
+If the .md file is not mentioned, ask user to create one in docs/<feature-name>/0_idea.md
+1. Read the feature description file from $ARGUMENTS path.
+2. Reformulate the user's feature request based on the file contents in a concise structured way to ensure which feature should be planned.
 Output that for confirmation.
-
-2. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder
+3. Execute the following steps in parallel using subagents and ask each subagent to write results into .md file under the docs/<feature-name> folder:
 <parallel tasks>
-  **Project Search Analysis** (use project-search subagent)
-  **Web Research** (use web-research subagent)
-  **Specification Creation** (use spec subagent):
+  **Project Search Analysis** (use project-search subagent to find relevant files)
+  **Web Research** (use web-research subagent to find relevant info from the web)
+  **Specification Creation** (use spec subagent to create business user-experience based spec)
 </parallel tasks>
-
-3. Check that all parallel tasks generated corresponidng .md files. Restart the tasks that failed.
-
-4. Create a single .md file with implementation plan in the form of - [ ] tasks and subtasks. Follow the rules:
+When formulating tasks to agents do not ask agents to create implementation plan.
+4. Check that all parallel tasks generated corresponding .md files. Restart the tasks that failed.
+5. Rename the files to have prefix related to step number, e.g.: 1_idea.md, 2_project_research.md, 3_web_research.md, 4_specs.md
+6. Create a single .md file with minimal implementation plan in the form of - [ ] tasks and subtasks. Follow the rules:
   - Do not estimate time to implement
-  - Add references to key files, specs, and docs.
-  - Wrap up in <parallel>...</parallel> tasks whenever possible
+  - Add references to key files, specs, and docs
+  - Avoid things that are hice to have, but no necessary
+  - Avoid extra funcitonality
+  - Keep only necessary tasks
+  - Wrap up in <parallel>...</parallel> tags whenever possible

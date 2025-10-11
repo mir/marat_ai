@@ -1,7 +1,6 @@
 ---
 description: Review the changes
 mode: subagent
-model: openai/gpt-5
 ---
 
 # Role
