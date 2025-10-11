@@ -1,6 +1,6 @@
 ---
-description: Create implementation plan
-mode: subagent
+description: Prepare minimal necessary documentation for a user defined feature
+agent: build
 ---
 
 # Task

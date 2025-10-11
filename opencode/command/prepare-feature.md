@@ -21,10 +21,3 @@ Output that for confirmation.
 When formulating tasks to agents do not ask agents to create implementation plan.
 4. Check that all parallel tasks generated corresponding .md files. Restart the tasks that failed.
 5. Rename the files to have prefix related to step number, e.g.: 1_idea.md, 2_project_research.md, 3_web_research.md, 4_specs.md
-6. Create a single .md file with minimal implementation plan in the form of - [ ] tasks and subtasks. Follow the rules:
-  - Do not estimate time to implement
-  - Add references to key files, specs, and docs
-  - Avoid things that are hice to have, but no necessary
-  - Avoid extra funcitonality
-  - Keep only necessary tasks
-  - Wrap up in <parallel>...</parallel> tags whenever possible

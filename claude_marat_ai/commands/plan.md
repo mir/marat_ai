@@ -1,8 +1,7 @@
 ---
-name: planner
 description: Create implementation plan
-model: sonnet
-tools: Grep, Glob, Bash, Read, Write
+argument-hint: <folder-with-specs>
+allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*), Bash(tree:*), WebSearch, mcp__deepwiki__read_wiki_structure, mcp__deepwiki__read_wiki_contents, mcp__deepwiki__ask_question, Write(docs/*:*), Read
 ---
 
 # Task
