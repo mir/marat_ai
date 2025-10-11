@@ -27,11 +27,13 @@ agent: build
    - Avoid extra functionality
    - **Each subtask MUST include implementation details:**
      - Relevant file links with line numbers: [file.ts:42-51](path/to/file.ts#L42-L51)
-     - Code snippets showing existing patterns to follow, only if it is absolutely necessary and text description is not enough
      - API signatures or interfaces to implement
      - Library documentation references if using external dependencies
      - Database schema details if modifying data structures
      - Configuration examples if changing settings
+     - Integration testing plan for automated testing
+     - Snippets from AGENTS.md, README.md, CLAUDE.md relevant to the task
+     - Code snippets showing existing patterns to follow, only if it is absolutely necessary and text description is not enough
 
 # Output Format
 ```markdown
@@ -59,10 +61,14 @@ agent: build
   - References: [main-file:100](path/to/main-file#L100)
   - [ ] Subtask 1: Create interface
     - File: [types.ts](path/to/types.ts)
+    - Check that backend runs without errors according to AGENTS.md
+    - Test with curl sending a request with message='Say hi'
   - [ ] Subtask 2: Implement handler
     - File: [handlers.ts:50](path/to/handlers.ts#L50)
     - Add after existing handlers
     - Use dependency injection pattern from [handlers.ts:20-35](path/to/handlers.ts#L20-L35)
+    - Run linting and formatting using guides from AGENTS.md
+    - Check that fronend runs without errors according to AGENTS.md
 
 <parallel>
 - [ ] Another set of parallel tasks
