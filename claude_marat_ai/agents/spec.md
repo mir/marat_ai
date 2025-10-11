@@ -2,6 +2,7 @@
 name: spec
 description: Create comprehensive specifications with user stories and test plans
 model: sonnet
+tools: Read, Write
 ---
 
 # Role

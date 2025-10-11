@@ -2,6 +2,7 @@
 name: project-search
 description: Search the current project for relevant files and components
 model: sonnet
+tools: Grep, Glob, Bash, Read, Write
 ---
 
 # Role

@@ -2,6 +2,7 @@
 name: web-research
 description: Research the web
 model: sonnet
+tools: WebSearch, mcp__deepwiki__read_wiki_structure, mcp__deepwiki__read_wiki_contents, mcp__deepwiki__ask_question, Read, Write
 ---
 
 # Role
