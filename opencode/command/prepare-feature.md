@@ -27,3 +27,4 @@ When formulating tasks to agents do not ask agents to create implementation plan
   - Avoid extra funcitonality
   - Keep only necessary tasks
   - Wrap up in <parallel>...</parallel> tags whenever possible
+  

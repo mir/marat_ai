@@ -1,6 +1,6 @@
 # Marat AI
 
-A comprehensive collection of development workflow tools for Claude Code and [OpenCode](https://opencode.ai), featuring specialized agents, custom commands, and MCP integrations to streamline your software development process.
+A collection of development workflow tools for Claude Code and [OpenCode](https://opencode.ai), featuring specialized agents, custom commands, and MCP integrations to streamline your software development process.
 
 ## Overview
 
@@ -65,7 +65,6 @@ Custom slash commands provide quick access to common workflows:
 
 - **/commit**: Automatically create branches, stage changes, commit with smart messages, and push
 - **/prepare-feature**: Generate comprehensive feature documentation using parallel agents
-- **/span**: Break down research tasks and execute them in parallel
 - **/week_report**: Generate weekly reports based on git history and project status
 
 ### MCPs
@@ -100,29 +99,18 @@ This command:
 - Uses **spec** agent to create user stories, edge cases, and testing plans
 - Outputs comprehensive documentation to `docs/auth/spec.md`
 
-### 2. Deep Research
-
-```
-/span "Research OAuth integration patterns"
-```
-
-This command:
-- Decomposes the topic into focused research tasks
-- Launches multiple agents in parallel to search codebase and web
-- Aggregates findings into `docs/dev/span-results.md`
-
-### 3. Implementation
+### 2. Implementation
 
 Implement the feature based on the generated documentation and research.
 
-### 4. Code Review
+### 3. Code Review
 
 Launch the **review** agent to analyze your changes:
 - Identifies potential bugs and security issues
 - Suggests optimizations
 - Checks library usage against best practices
 
-### 5. Commit and Deploy
+### 4. Commit and Deploy
 
 ```
 /commit
@@ -135,7 +123,7 @@ This command:
 - Pushes to remote
 - Optionally creates a merge request
 
-### 6. Weekly Reporting
+### 5. Weekly Reporting
 
 ```
 /week_report
@@ -145,37 +133,6 @@ At the end of the week, generate a summary report:
 - Analyzes git history for completed work
 - Reviews TODO and roadmap files for next steps
 - Proposes a formatted Slack update
-
-## Project Structure
-
-```
-marat_ai/
-├── claude_marat_ai/           # Claude Code plugin
-│   ├── .claude-plugin/
-│   │   └── plugin.json        # Plugin manifest
-│   ├── agents/                # Specialized agent definitions
-│   │   ├── project-search.md
-│   │   ├── review.md
-│   │   ├── spec.md
-│   │   └── web-research.md
-│   ├── commands/              # Custom slash commands
-│   │   ├── commit.md
-│   │   ├── prepare-feature.md
-│   │   └── week_report.md
-│   └── .mcp.json              # MCP configuration for plugin
-├── opencode/                  # OpenCode configuration
-│   └── opencode.json          # OpenCode settings and MCP config
-└── .claude-plugin/
-    └── marketplace.json       # Plugin marketplace manifest
-```
-
-## Best Practices
-
-- Use **/prepare-feature** before starting major features to ensure comprehensive planning
-- Run the **review** agent before committing significant changes
-- Leverage **/span** for complex research tasks that benefit from parallel processing
-- Use **/commit** for consistent, well-formatted commit messages
-- Generate **/week_report** regularly to track progress and communicate updates
 
 ## Contributing
 
