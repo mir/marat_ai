@@ -1,8 +1,8 @@
 ---
 name: spec
-description: Create comprehensive specifications with user stories and test plans
+description: Create minimal specifications with user stories and test plans
 model: sonnet
-tools: Read, Write
+tools: Read, Write, Grep, Glob, Bash
 ---
 
 # Role

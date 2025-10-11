@@ -1,5 +1,5 @@
 ---
-description: Prepare comprehensive documentation for a user defined feature
+description: Prepare minimal necessary documentation for a user defined feature
 argument-hint: <path-to-feature.md>
 allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*), Bash(tree:*), WebSearch, mcp__deepwiki__read_wiki_structure, mcp__deepwiki__read_wiki_contents, mcp__deepwiki__ask_question, Write(docs/*:*), Read
 ---
