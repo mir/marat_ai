@@ -35,6 +35,7 @@ tools: Grep, Glob, Bash, Read, Write
 [Brief description of what needs to be implemented and why]
 
 ## Prerequisites
+- [ ] Read AGENTS.md, CLAUDE.md, README.md if exists
 - [ ] Review [relevant spec](path/to/spec)
 - [ ] Check [existing implementation](path/to/file)
 
