@@ -13,10 +13,12 @@ Create a minimal specification, avoiding the impelemntaion planning, creating co
 
 ## Requirements
 - Focuses on a single most important aspect
-- Write small user stories following the "As a [user], I want [goal] so that [benefit]" format
+- Write small user stories following the "As a [user], I want [goal] so that [benefit]" format.
+  If the feature should not change the user's experience skip this step.
 - Define functional and non-functional requirements, keeping only required ones, avoiding extra.
 - Identify edge cases and corner cases that need to be handled
 - Create minimal end-to-end testing plan for manual QA specialists
+  If the feature should not change the user's experience skip this step.
 - Write the results of previews steps into an .md file in the docs/ folder
 
 # Important things to avoid

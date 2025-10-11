@@ -25,3 +25,4 @@ You are in research mode.
 - Do not commit changes automatically
 - Do not create a plan for the implementation of new feature
 - Do not plan the architecture of a new feature
+- Do not create migration strategies, assume that all the changes will happen at once
