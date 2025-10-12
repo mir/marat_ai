@@ -19,10 +19,7 @@ agent: build
    - Use the `- [ ]` for the tasks and subtasks
    - Keep only necessary tasks
    - Add references to key files, specs, and docs
-   - Add only absolutely necessary code snippets from existing files and docs
-   - Wrap up tasks in <parallel>...</parallel> tags whenever possible
    - Do not estimate time to implement
-   - Avoid unit tests
    - Avoid things that are nice to have, but not necessary
    - Avoid extra functionality
    - **Each subtask MUST include implementation details:**
@@ -42,41 +39,24 @@ agent: build
 ## Context
 [Brief description of what needs to be implemented and why]
 
-## Prerequisites
 - [ ] Read AGENTS.md, CLAUDE.md, README.md if exists
-- [ ] Review [relevant spec](path/to/spec)
 - [ ] Check [existing implementation](path/to/file)
 
 ## Implementation Tasks
 
-<parallel>
-- [ ] Task that can run in parallel with other tasks in this block
-  - References: [file:42](path/to/file#L42), [docs](https://example.com/docs)
-- [ ] Another independent task
-  - References: [another-file](path/to/another-file), [spec](path/to/spec.md)
-  - Implementation: Follow the pattern in [another-file:15-30](path/to/another-file#L15-L30)
-</parallel>
+- [ ] Task 1: [Description]
+  - Details: [Specific implementation details]
+  - Files: [file.ts:10-20](path/to/file.ts#L10-L20)
+  - Libraries to use: [could be empty]
+  - Testing strategy (optional):
+    - Test scenario
+    - How to invoke a command to run a test from AGENTS.md or CLAUDE.md
 
-- [ ] Sequential task that depends on previous tasks
-  - References: [main-file:100](path/to/main-file#L100)
-  - [ ] Subtask 1: Create interface
-    - File: [file](path/to/file)
-    - Check that backend runs without errors according to AGENTS.md
-    - Test backend sending a request with message='Say hi' according to AGENTS.md
-  - [ ] Subtask 2: Implement handler
-    - File: [handlers:50](path/to/handlers#L50)
-    - Add after existing handlers
-    - Use dependency injection pattern from [handlers:20-35](path/to/handlers#L20-L35)
-    - Run linting and formatting using guides from AGENTS.md
-    - Check that fronend runs without errors according to AGENTS.md
-    - Create a test and run it using instructions in AGENTS.md
+...
 
-<parallel>
-- [ ] Another set of parallel tasks
-  - References: [component](path/to/component)
-  - Update component props interface at [component:10-15](path/to/component#L10-L15)
-- [ ] Can be executed simultaneously
-  - References: [utils](path/to/utils)
-  - Add utility function following naming convention in [utils:5-8](path/to/utils#L5-L8)
-</parallel>
+## Verification
+
+- [ ] Verify implementation matches specs
+- [ ] Run integration tests
+- [ ] Check all references in context work correctly
 ```
