@@ -11,4 +11,4 @@ agent: build
 4. Commit with a short, concise, descriptive commit message
 5. Check that all files are commited. Fix that if it is not true.
 6. Push the new branch
-7. Porpose to the user to create a short concise merge request using the glab utility, describing all the changes made in the branch.
+7. Porpose to the user to create a short concise merge request using the glab utility, describing all the changes made in the branch, not only the recent commit but all of them.
