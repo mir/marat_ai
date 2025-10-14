@@ -25,7 +25,6 @@ Your final output document should follow this structure:
 
 ### [Solution/Library/Tool Name 1]
 **Source:** [URL or repository link]
-
 **Description:** One sentence explaining what this is
 
 **Pros:**
