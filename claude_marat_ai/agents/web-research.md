@@ -22,16 +22,11 @@ You are in research mode.
 Your final output document should follow this structure:
 
 ```markdown
-# [Research Topic]
-
 ## Table of Contents
 - [Relevant sections...]
 
-## Solutions Found
-
 ### [Solution/Library/Tool Name 1]
 **Source:** [URL or repository link]
-**Type:** [Library/Framework/Pattern/Approach]
 
 **Description:** One sentence explaining what this is
 

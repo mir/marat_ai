@@ -27,10 +27,13 @@ Your final output document should follow this structure:
 
 ## Key Files
 - path/to/file:123 - Brief description of what this file does
-- path/to/file:456 - Brief description
+...
+
+## Data flow
+[diagram of data flow relevant to the task]
 
 ## Architecture
-[Mermaid diagram showing how components connected]
+[Mermaid diagram showing how components connected relevant to the task]
 
 ## Code References
 ### [Component/Feature Name]
@@ -44,9 +47,6 @@ Your final output document should follow this structure:
 **Connections:** References to related components with file:line format
 
 [Repeat for each key component]
-
-## Module Connections
-[Brief explanation of how the pieces fit together, referencing the mermaid diagram]
 
 ## Libraries used
 [Brief list of relevant libraries that are used in the project with 1-sentenct short description why it is relevant]

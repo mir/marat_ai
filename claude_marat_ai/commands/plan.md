@@ -35,29 +35,35 @@ allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*),
 
 # Output Format
 ```markdown
+
+# TOC
+...
+
 # Implementation Plan: [Feature Name]
+[The original idea reformulated in an easy to understand, clear, and consise way.]
 
-## Context
-[Brief description of what needs to be implemented and why]
+## Architectural plan
+[Description where the changes will take place]
 
-- [ ] Read AGENTS.md, CLAUDE.md, README.md if exists
-- [ ] Check [existing implementation](path/to/file)
+## Data flow plan
+[Description where the changes will take place]
 
 ## Implementation Tasks
 
-- [ ] Task 1: [Description]
+- [ ] Task 1: <short name>.
   - Details: [Specific implementation details]
   - Files: [file.ts:10-20](path/to/file.ts#L10-L20)
-  - Libraries to use: [could be empty]
+  - Libraries: [could be empty]
+  - Relevant docs snippets
+  - Where in architectural diagram it should be
+  - Where in data flow it should be
   - Testing strategy (optional):
     - Test scenario
-    - How to invoke a command to run a test from AGENTS.md or CLAUDE.md
+    - How to invoke a command to run tests using AGENTS.md or CLAUDE.md
 
 ...
 
-## Verification
+# Summary
+Which tasks can be run in parallel
 
-- [ ] Verify implementation matches specs
-- [ ] Run integration tests
-- [ ] Check all references in context work correctly
 ```
