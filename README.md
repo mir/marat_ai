@@ -1,143 +1,116 @@
-# Marat AI
+# marat_ai
 
-A collection of development workflow tools for Claude Code and [OpenCode](https://opencode.ai), featuring specialized agents, custom commands, and MCP integrations to streamline your software development process.
+AI-powered development workflow automation with specialized agents for project search, code review, specification creation, and web research.
 
 ## Overview
 
-Marat AI provides a powerful toolkit that enhances Claude Code and OpenCode with:
-
-- **Specialized Agents**: Autonomous sub-agents for complex tasks like codebase search, code review, specification creation, and web research
-- **Custom Commands**: Slash commands for common workflows including auto-commit, feature documentation, and reporting
-- **MCP Integrations**: Deep GitHub repository and documentation search capabilities
-- **OpenCode Configurations**: Pre-configured settings optimized for development workflows
-
-## Getting Started
-
-### For Claude Code Users
-
-Claude Code uses a plugin system. To install Marat AI directly from GitHub:
-
-1. Install [Claude Code](https://claude.com/claude-code)
-2. Start Claude Code and add the GitHub marketplace:
-   ```
-   /plugin marketplace add mir/marat_ai
-   ```
-3. Install the plugin:
-
-For more information about Claude Code plugins, see the [plugins documentation](https://docs.claude.com/en/docs/claude-code/plugins).
-
-### For OpenCode Users
-
-OpenCode uses a simpler configuration approach:
-
-1. Install [OpenCode](https://opencode.ai)
-2. Copy the configuration files to your project:
-   ```bash
-   cp -r opencode/opencode.json /path/to/your/project/.opencode/
-   cp -r agent/*.md command/*.md /path/to/your/project/.opencode/
-   ```
-
-   Or install globally:
-   ```bash
-   cp -r opencode/opencode.json agent/*.md command/*.md ~/.config/opencode/
-   ```
-
-For more information about OpenCode configuration, see the [OpenCode documentation](https://opencode.ai/docs).
-
-### Quick Start
-
-Once installed, you can immediately use any of the available commands or agents in your sessions.
+`marat_ai` is a plugin for Claude Code and OpenCode that provides intelligent development workflow automation through specialized AI agents and custom slash commands. It implements an ACE (Autonomous Cognitive Entity) framework with Generator-Reflector-Curator pattern for iterative improvement.
 
 ## Features
 
-### Agents
+### Custom Slash Commands
 
-Agents are specialized sub-agents that handle complex, multi-step tasks autonomously. Launch them using the Task tool with the appropriate `subagent_type`:
+- **`/marat_ai:prepare-feature <path>`** - Prepare minimal necessary documentation for a user-defined feature
+  - Analyzes feature requirements
+  - Performs parallel project search, web research, and spec creation
+  - Generates structured documentation in `docs/<feature-name>/`
 
-- **project-search**: Search your codebase for relevant files and components
-- **review**: Analyze code changes for bugs, optimizations, and best practices
-- **spec**: Create comprehensive specifications with user stories and test plans
-- **web-research**: Research topics using web search and documentation
+- **`/marat_ai:plan <folder>`** - Create implementation plan from specifications
+  - Generates detailed implementation tasks with file references
+  - Includes architectural and data flow plans
+  - Adds testing strategies and library references
 
-### Commands
+- **`/marat_ai:implement <path>`** - Implement plans using ACE-style adaptation
+  - Uses PLAYBOOK.md for storing learned patterns and strategies
+  - Follows Generator, Reflector, Curator cycle
+  - Automatically learns from failures and successes
+  - Generates trace logs for debugging
 
-Custom slash commands provide quick access to common workflows:
+- **`/marat_ai:commit`** - Auto-commit with smart branching
+  - Automatically creates feature branches from master
+  - Generates descriptive commit messages
+  - Proposes merge requests
 
-- **/commit**: Automatically create branches, stage changes, commit with smart messages, and push
-- **/prepare-feature**: Generate comprehensive feature documentation using parallel agents
-- **/week_report**: Generate weekly reports based on git history and project status
+- **`/marat_ai:week_report`** - Prepare weekly management report
+  - Analyzes last week's changes
+  - Formats report for Slack posting
 
-### MCPs
+### Specialized Agents
 
-Model Context Protocol integrations extend Claude Code and OpenCode capabilities:
+- **curator** - Proposes minimal delta updates to the PLAYBOOK
+- **reflector** - Diagnoses implementation steps and extracts actionable insights
+- **project-search** - Searches the current project for relevant files and components
+- **spec** - Creates minimal specifications with user stories and test plans
+- **web-research** - Researches the web for relevant information
+- **review** - Reviews code changes
 
-- **deepwiki**: Search GitHub repositories and their documentation (see `opencode.json`)
+## Installation
 
-### OpenCode Configuration
+### For Claude Code
 
-The `opencode/opencode.json` file contains pre-configured settings for OpenCode, including:
+The plugin is already configured in `.claude-plugin/marketplace.json`. Claude Code will automatically load it from the `claude_marat_ai/` directory.
 
-- MCP server configurations (deepwiki)
-- Optimized settings for development workflows
+### For OpenCode
 
-For more information about OpenCode configuration, see the [OpenCode documentation](https://opencode.ai/docs).
+1. Transfer files to OpenCode format:
+   ```bash
+   uv run transfer_from_claude.py
+   ```
 
-## Example Workflow
+2. Sync to OpenCode config directory:
+   ```bash
+   ./sync_opencode.sh
+   ```
 
-Here's a complete workflow for implementing a new OAuth authentication feature:
+## Development Workflow
 
-### 1. Planning and Research
+### Typical Feature Development Flow
 
-```
-/prepare-feature "Add OAuth login support"
-```
+1. **Create feature idea**: Write a markdown file describing your feature in docs/<faeature-name> folder
+2. **Prepare documentation**: `/marat_ai:prepare-feature docs/<faeature-name>/idea.md`
+3. **Create implementation plan**: `/marat_ai:plan docs/<faeature-name>`
+4. **Implement**: `/marat_ai:implement docs/<faeature-name>/5_implementation_plan.md`
+5. **Commit**: `/marat_ai:commit`
 
-This command:
-- Reformulates your request for clarity
-- Launches **project-search** agent to find existing auth code (e.g., `src/auth.js:45`)
-- Runs **web-research** agent to find OAuth libraries and best practices
-- Uses **spec** agent to create user stories, edge cases, and testing plans
-- Outputs comprehensive documentation to `docs/auth/spec.md`
+### ACE Framework
 
-### 2. Implementation
+The implementation command uses an ACE (Autonomous Cognitive Entity) framework:
 
-Implement the feature based on the generated documentation and research.
+1. **Generator Phase**: Implements subtasks using relevant PLAYBOOK patterns
+2. **Reflector Phase**: Analyzes implementation, identifies errors and insights
+3. **Curator Phase**: Updates PLAYBOOK with new learnings
+4. **Grow-and-Refine**: Deduplicates and prunes PLAYBOOK entries
 
-### 3. Code Review
+The PLAYBOOK.md maintains:
+- `strategies_and_hard_rules` - Best practices and constraints
+- `apis_to_use_for_specific_information` - API patterns
+- `verification_checklist` - Testing and validation steps
+- `formulas_and_calculations` - Algorithms and logic
+- `failures_and_resolutions` - Known issues and solutions
 
-Launch the **review** agent to analyze your changes:
-- Identifies potential bugs and security issues
-- Suggests optimizations
-- Checks library usage against best practices
+Each bullet tracks `helpful_count` and `harmful_count` for relevance ranking.
 
-### 4. Commit and Deploy
+## Scripts
 
-```
-/commit
-```
+### transfer_from_claude.py
 
-This command:
-- Creates a feature branch
-- Stages all changes
-- Generates an intelligent commit message
-- Pushes to remote
-- Optionally creates a merge request
+Converts Claude Code plugin format to OpenCode format by:
+- Removing YAML frontmatter from commands and agents
+- Mapping folder names (agents�agent, commands�command)
+- Preserving OpenCode preambles if they exist
 
-### 5. Weekly Reporting
+### sync_opencode.sh
 
-```
-/week_report
-```
+Syncs the `opencode/` directory to `~/.config/opencode/`:
+- Creates target directories as needed
+- Replaces existing files
 
-At the end of the week, generate a summary report:
-- Analyzes git history for completed work
-- Reviews TODO and roadmap files for next steps
-- Proposes a formatted Slack update
+## Requirements
 
-## Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests to improve the workflow tools.
+- Python 3.12+ (for scripts)
+- `uv` package manager
+- Claude Code or OpenCode
 
 ## License
 
-[MIT](LICENSE)
+This project is for personal use.
