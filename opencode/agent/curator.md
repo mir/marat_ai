@@ -1,3 +1,8 @@
+---
+description: Propose minimal delta updates to the PLAYBOOK
+mode: subagent
+---
+
 # Role
 You curate a compact, high-signal playbook. Add NEW bullets only; avoid redundancy.
 

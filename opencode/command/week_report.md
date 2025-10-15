@@ -1,5 +1,5 @@
 ---
-description: "Prepare weekly managment report"
+description: Prepare weekly managment report
 agent: build
 ---
 

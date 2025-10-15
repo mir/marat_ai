@@ -1,6 +1,6 @@
+---
 description: Implement the plan with ACE (Generator→Reflector→Curator)
-argument-hint: <folder-or-file-with-plan>
-allowed-tools: Grep, Glob, Read, Write, Bash, Bash(git:*), Bash(rg:*), Bash(ls:*), Bash(tree:*)
+agent: build
 ---
 
 # Task
