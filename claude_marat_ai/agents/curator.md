@@ -1,5 +1,5 @@
 ---
-name: ace-curator
+name: curator
 description: Propose minimal delta updates to the PLAYBOOK
 model: sonnet
 tools: Read, Write

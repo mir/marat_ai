@@ -1,5 +1,5 @@
 ---
-name: ace-reflector
+name: reflector
 description: Diagnose implementation steps and extract actionable insights
 model: sonnet
 tools: Read, Write, Grep, Bash
