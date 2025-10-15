@@ -21,8 +21,6 @@ Create a minimal specification, avoiding the impelemntaion planning, creating co
 
 ## Output Format
 
-The specification .md file must follow this minimal structure:
-
 ```markdown
 ## Table of Contents
 ...

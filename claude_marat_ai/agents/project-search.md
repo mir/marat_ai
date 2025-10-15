@@ -16,12 +16,10 @@ You are in project search mode. Your task is just to find the relevant files.
 - Write a small summary of findings to an .md file in the docs/ folder keeping only the neccessary stuff and avoiding extra nice to have. Include the TOC at the top.
 - Check **Things to avoid** one by one and fix the issues if any.
 
-# Output Format
+<output format>
+# Topic name
 
-Your final output document should follow this structure:
-
-```markdown
-# [Topic Name]
+1-sentence description of the problem
 
 ## Table of Contents
 - [Relevant sections...]
@@ -50,19 +48,19 @@ Your final output document should follow this structure:
 ## Libraries used
 [Brief list of relevant libraries that are used in the project with 1-sentenct short description why it is relevant]
 
-**Key principles:**
+</output format>
+
+# Key principles
 - Use `file_path:line_number` format for all code references
 - Keep code snippets minimal (5-15 lines maximum)
 - Focus on structure and connections, not implementation details
 - Mermaid diagrams should show data/control flow between modules. Avoid complex HTML formatting in diagrams, use simple separators like ":", ",", "|", and other ones
 - Avoid explanatory prose - let the code references speak for themselves
 
-# Things to avoid
+# **Things to avoid**:
 - Do not create a plan to implement a new features
 - Do not use web search and fetch
 - Do not create a testing strategy
 - Do not implement new features
 - Do not modify existing code
 - Do not give approches
-- Do not give recommendations
-- Do not give conclusion
