@@ -14,6 +14,7 @@ You are in project search mode. Your task is just to find the relevant files.
 - Show bare-minimal code snippets and explain how different parts connect
 - create a mermaid diagrams to explain how different modules are connected
 - Write a small summary of findings to an .md file in the docs/ folder keeping only the neccessary stuff and avoiding extra nice to have. Include the TOC at the top.
+- Check **Things to avoid** one by one and fix the issues if any.
 
 # Output Format
 

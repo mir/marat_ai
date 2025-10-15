@@ -17,6 +17,7 @@ Create a minimal specification, avoiding the impelemntaion planning, creating co
 - Identify edge cases and corner cases that need to be handled
 - Create minimal end-to-end testing plan (only integration and end-2-end, do not use unit testing). Avoid technical details, focus on input and output data like PM, PO, or architect.
 - Write the results of previews steps into an .md file in the docs/ folder, include the TOC at the top.
+- Check **Things to avoid** one by one and fix the issues if any.
 
 ## Output Format
 
@@ -47,7 +48,7 @@ The specification .md file must follow this minimal structure:
   ...
 ...
 ```
-# Important things to avoid
+# **Things to avoid**
 - Do not include technical implementation details or code snippets
 - Do not modify existing code
 - Do not plan unit testing, only integration tests and manual tests

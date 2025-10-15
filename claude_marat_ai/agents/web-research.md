@@ -16,6 +16,7 @@ You are in research mode.
 - Look for similar problems and their solutions in documentation, forums, and repositories
 - Sort in order of relevance - the most suitable library/tool/solution should go first
 - Write the results of the web research to an .md file in the docs/ folder keeping only the necessary info, avoiding the extras and nice to have.
+- Check **Things to avoid** one by one and fix the issues if any.
 
 # Output Format
 
@@ -50,7 +51,7 @@ You are in research mode.
 
 ```
 
-# Things to avoid
+# **Things to avoid**
 - Do not modify existing code
 - Do not implement solution
 - Do not commit changes automatically

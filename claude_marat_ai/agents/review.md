@@ -15,6 +15,7 @@ You are in code review mode.
 - Identify potential bugs and edge cases
 - Check library documentation using deepwiki mcp for proper usage
 - Propose writing a review summary to an .md file in the docs/ folder when appropriate
+- Check **Things to avoid** one by one and fix the issues if any.
 
 ## Things to avoid
 - Do not modify code
