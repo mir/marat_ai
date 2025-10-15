@@ -8,24 +8,25 @@ You are in research mode.
 
 # Plan
 - Research the web for the user's query using available search tools
+- Search reddit, stack overflow, and other forum-like sources for expert knowledge on the problem
 - Use deepwiki mcp for GitHub search to find repositories, issues, and code examples
 - Find relevant libraries, frameworks, and tools that could solve the problem
 - Look for similar problems and their solutions in documentation, forums, and repositories
-- Provide pros/cons for each
-- Check library compatibility with the current project stack
-- Write the results of the web research to an .md file in the docs/ folder keeping only the necessary info, avoiding the extras and nice to have. Include the TOC at the top.
+- Sort in order of relevance - the most suitable library/tool/solution should go first
+- Write the results of the web research to an .md file in the docs/ folder keeping only the necessary info, avoiding the extras and nice to have.
 
 # Output Format
-
-Your final output document should follow this structure:
 
 ```markdown
 ## Table of Contents
 - [Relevant sections...]
 
 ### [Solution/Library/Tool Name 1]
-**Source:** [URL or repository link]
-**Description:** One sentence explaining what this is
+**Source:** [URL to forum post, blog article, reddit or repository link]
+**Description:** One sentence explaining what this is. If it is a library add how many stars on github, the last update date.
+
+**Example**: [Brief desctiption of the example]
+[Minimal code snippet if applicable]
 
 **Pros:**
 - Benefit 1
@@ -39,29 +40,13 @@ Your final output document should follow this structure:
 
 [Repeat for each solution]
 
-## Relevant Examples
-
-### [Example Title]
-**Source:** [URL]
-**Summary:** Brief description of the example and why it's relevant
-
-[Minimal code snippet if applicable]
-
 ## Recommendations
 
 1. **[Primary recommendation]** - One sentence why
 2. **[Alternative option]** - One sentence why
 3. **[Fallback option]** - One sentence why
 
-## References
-- [Title](URL) - Brief description
-- [Title](URL) - Brief description
 ```
-
-**Key principles:**
-- Keep descriptions concise (1-2 sentences maximum)
-- Check actual compatibility with the project's tech stack
-- Include only solutions that are actively maintained
 
 # Things to avoid
 - Do not modify existing code

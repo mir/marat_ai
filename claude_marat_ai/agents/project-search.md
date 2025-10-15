@@ -25,10 +25,6 @@ Your final output document should follow this structure:
 ## Table of Contents
 - [Relevant sections...]
 
-## Key Files
-- path/to/file:123 - Brief description of what this file does
-...
-
 ## Data flow
 [diagram of data flow relevant to the task]
 
@@ -37,13 +33,15 @@ Your final output document should follow this structure:
 
 ## Code References
 ### [Component/Feature Name]
-**Location:** `path/to/file.ts:line_number`
-
+[file name](link to file path with line numbers):
+- One sentence description of the file
+- One sentence why it is relevant for the problem.
+- One sentence explaining where it is in architecture diagram
+- One sentence explaining where it is in a data flow
 ```language
 // Minimal code snippet showing the relevant part
 ```
 
-**Purpose:** One sentence explaining what this does
 **Connections:** References to related components with file:line format
 
 [Repeat for each key component]
@@ -55,7 +53,7 @@ Your final output document should follow this structure:
 - Use `file_path:line_number` format for all code references
 - Keep code snippets minimal (5-15 lines maximum)
 - Focus on structure and connections, not implementation details
-- Mermaid diagrams should show data/control flow between modules
+- Mermaid diagrams should show data/control flow between modules. Avoid complex HTML formatting in diagrams, use simple separators like ":", ",", "|", and other ones
 - Avoid explanatory prose - let the code references speak for themselves
 
 # Things to avoid
