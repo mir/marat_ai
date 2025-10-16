@@ -13,9 +13,10 @@ If the user doesn't specify the plan, propose to provide one or create it with `
 - Validate inputs (plan path or direct instructions). If missing, offer `/prepare-feature` then `/plan`.
 - If `PLAYBOOK.md` doens't exists at repo root create an empty one
 
-2) Add additional tasks before each implementaion step (task in todo):
+1) Create a todo list with tasks form implementation plan plus two additional tasks before and after:
   - Before each task in the todo add the task to retrieve relevant bullets for this task from PLAYBOOK.md:
     - Rank = (helpful_count − harmful_count) + recency boost + similarity to subtask text (simple substring/`rg` hits suffice).
+  - After each task add a task to run /export .trace/TRACE_<task>_<timestamp>.md to export the whole conversation to the file.
 
 # PLAYBOOK.md format
 Bullet Item — Conceptual schema

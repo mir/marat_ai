@@ -1,23 +1,6 @@
 #!/bin/bash
 # Post-TodoWrite hook: Run reflector agent when tasks are completed
 
-# Read the hook input from stdin
-input=$(cat)
-
-# Extract the todos array from tool_input
-todos=$(echo "$input" | jq -r '.tool_input.todos // []')
-
-# Extract current working directory
-cwd=$(echo "$input" | jq -r '.cwd // "."')
-
-# Check if any todo was marked as completed
-completed_count=$(echo "$todos" | jq '[.[] | select(.status == "completed")] | length')
-
-if [ "$completed_count" -eq 0 ]; then
-    # No completed tasks, exit silently
-    exit 0
-fi
-
 # Find the most recent trace file
 trace_dir="$cwd/.trace"
 if [ ! -d "$trace_dir" ]; then
@@ -35,11 +18,6 @@ if [ -z "$latest_trace" ]; then
     # No trace files found
     exit 0
 fi
-
-# Extract task name and timestamp from trace filename
-trace_basename=$(basename "$latest_trace")
-task_name=$(echo "$trace_basename" | sed 's/TRACE_\(.*\)_[0-9]*.md/\1/')
-timestamp=$(echo "$trace_basename" | sed 's/TRACE_.*_\([0-9]*\).md/\1/')
 
 timestamp=$(date +%s%N)
 touch "hook_run_reflector_${timestamp}.log"
@@ -84,6 +62,7 @@ You are an expert implementation auditor. Analyze subtask outcomes from .trace/T
 
 timestamp=$(date +%s%N)
 touch "hook_run_reflector_done_${timestamp}.log"
+
 reflector_exit=${PIPESTATUS[0]}
 if [ $reflector_exit -ne 0 ]; then
     echo "Reflector agent failed with exit code $reflector_exit" >&2
@@ -97,8 +76,10 @@ sleep 1
 
 timestamp=$(date +%s%N)
 touch "hook_find_curator_file_${timestamp}.log"
+
 # Check if reflection file was created
-reflection_file="$trace_dir/REFLECTION_${task_name}_${timestamp}.md"
+reflection_file=$(find "$trace_dir" -name "REFLECTION_*.md" -type f -print0 | xargs -0 ls -t | head -n 1)
+
 if [ ! -f "$reflection_file" ]; then
     exit 0
 fi
