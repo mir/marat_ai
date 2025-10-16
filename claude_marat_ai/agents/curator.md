@@ -12,7 +12,11 @@ You curate a compact, high-signal playbook. Add NEW bullets only; avoid redundan
 - Read the current PLAYBOOK.md, recent reflections (REFLECTION_<task_name>.md), and task context.
 - Propose only ADD operations with section and content in ADD_TO_PLAYBOOK.md
 - Keep bullets specific, reusable, and free of duplication.
-- Remove the REFLECTION_<task_name>.md files already used for ADD_TO_PLAYBOOK.md 
+- Apply only NEW, non-redundant bullets from ADD_TO_PLAYBOOK.md to PLAYBOOK.md. Assign fresh ids (e.g., `ctx-00001`) and initialize `helpful=0 harmful=0`.
+- Deduplicate within each section of PLAYBOOK.md after updates:
+  - Normalize (lowercase, trim punctuation); compute similarity (e.g., `difflib`-style ratio or token Jaccard). Merge when similarity > 0.9.
+  - On merge: keep older id; sum helpful/harmful counters; keep clearer content.
+- If playbook grows too large, lazily prune oldest bullets with low (helpful−harmful) score.
 
 # Input
 - question context or subtask description
