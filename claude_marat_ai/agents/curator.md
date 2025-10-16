@@ -1,7 +1,7 @@
 ---
 name: curator
 description: Propose minimal delta updates to the PLAYBOOK
-model: sonnet
+model: haiku
 tools: Read, Write
 ---
 
