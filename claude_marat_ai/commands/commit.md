@@ -1,5 +1,5 @@
 ---
-description: "Auto-commit with smart branching"
+description: Auto-commit with smart branching. Can be used only by the user, not other agents.
 ---
 
 1. Observe local changes using git commands.

@@ -1,0 +1,13 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "TodoWrite",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "/Users/maratyuldashev/work/marat_ai/claude_marat_ai/hooks/post_todo_reflector.sh"
+        }
+      ]
+    }
+  ]
+}
