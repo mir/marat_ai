@@ -25,6 +25,9 @@ if [ ! -d "$trace_dir" ]; then
     exit 0
 fi
 
+timestamp=$(date +%s%N)
+touch "hook_start_${timestamp}.log"
+
 # Get the most recent TRACE file
 latest_trace=$(find "$trace_dir" -name "TRACE_*.md" -type f -print0 | xargs -0 ls -t | head -n 1)
 
@@ -38,8 +41,9 @@ trace_basename=$(basename "$latest_trace")
 task_name=$(echo "$trace_basename" | sed 's/TRACE_\(.*\)_[0-9]*.md/\1/')
 timestamp=$(echo "$trace_basename" | sed 's/TRACE_.*_\([0-9]*\).md/\1/')
 
+timestamp=$(date +%s%N)
+touch "hook_run_reflector_${timestamp}.log"
 # Run Claude Code with reflector agent on the trace file
-echo "Running reflector agent on $trace_basename..." >&2
 claude -p "Analyze the trace file at $latest_trace and create a reflection following your agent instructions." \
     --model haiku \
     --system-prompt "# Role
@@ -78,6 +82,8 @@ You are an expert implementation auditor. Analyze subtask outcomes from .trace/T
     --allowed-tools "Read,Write,Bash,Grep,Glob" \
     --permission-mode acceptEdits
 
+timestamp=$(date +%s%N)
+touch "hook_run_reflector_done_${timestamp}.log"
 reflector_exit=${PIPESTATUS[0]}
 if [ $reflector_exit -ne 0 ]; then
     echo "Reflector agent failed with exit code $reflector_exit" >&2
@@ -89,15 +95,18 @@ fi
 # Wait a moment for the reflection file to be written
 sleep 1
 
+timestamp=$(date +%s%N)
+touch "hook_find_curator_file_${timestamp}.log"
 # Check if reflection file was created
 reflection_file="$trace_dir/REFLECTION_${task_name}_${timestamp}.md"
 if [ ! -f "$reflection_file" ]; then
-    echo "No reflection file found at $reflection_file" >&2
     exit 0
 fi
 
+timestamp=$(date +%s%N)
+touch "hook_run_curator_${timestamp}.log"
+
 # Run curator agent on the reflection file
-echo "Running curator agent on reflection file..." >&2
 claude -p "Read the reflection file at $reflection_file and the current PLAYBOOK.md. Propose additions following your agent instructions." \
     --model haiku \
     --system-prompt "# Role
@@ -141,15 +150,15 @@ You curate a compact, high-signal playbook. Add NEW bullets only; avoid redundan
     --allowed-tools "Read,Write,Edit,Bash,Grep,Glob" \
     --permission-mode acceptEdits
 
+
+timestamp=$(date +%s%N)
+touch "hook_curator_finished_${timestamp}.log"
+
 curator_exit=${PIPESTATUS[0]}
 if [ $curator_exit -ne 0 ]; then
-    echo "Curator agent failed with exit code $curator_exit" >&2
-    echo "Output:" >&2
     cat /tmp/curator_output.log >&2
     exit 0
 fi
-
-echo "Successfully completed reflector and curator agents" >&2
 
 # Return success
 exit 0
