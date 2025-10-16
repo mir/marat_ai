@@ -14,6 +14,7 @@ agent: build
   - Database tables
   - Additional data
 - Create a single .md file with minimal implementation plan
+- Run the plan-spec-reviewer agent to review the written plan.
 
 # Requirements
    - Use the `- [ ]` for the tasks and subtasks

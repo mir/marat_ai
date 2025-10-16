@@ -3,6 +3,11 @@ description: Implement the plan with ACE (Generator→Reflector→Curator)
 agent: build
 ---
 
+description: Implement the plan with ACE (Generator→Reflector→Curator)
+argument-hint: <folder-or-file-with-plan>
+allowed-tools: Grep, Glob, Read, Write, Bash, Bash(git:*), Bash(rg:*), Bash(ls:*), Bash(tree:*)
+---
+
 # Task
 Implement the plan specified by the user using ACE-style adaptation.
 If the user doesn't specify the plan, propose to provide one or create it with `/prepare-feature` and `/plan`.
