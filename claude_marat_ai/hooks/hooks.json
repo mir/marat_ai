@@ -4,7 +4,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "${CLAUDE_PLUGIN_ROOT}/hooks/trace-reflect-curate.sh"
+          "command": "${CLAUDE_PLUGIN_ROOT}/scripts/trace-reflect-curate.sh"
         }
       ]
     }
