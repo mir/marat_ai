@@ -1,116 +1,109 @@
 # marat_ai
 
-AI-powered development workflow automation with specialized agents for project search, code review, specification creation, and web research.
+Personal automation and configuration for running OpenCode-style agents and commands. The repo keeps two synchronized views of the same content:
+
+- `claude_marat_ai/` — authoring source with YAML frontmatter for commands and agents
+- `opencode/` — runtime configuration consumed by OpenCode (frontmatter stripped, paths normalized)
+
+Helper scripts keep these folders in sync and copy runtime config into `~/.config/opencode`.
 
 ## Overview
 
-`marat_ai` is a plugin for Claude Code and OpenCode that provides intelligent development workflow automation through specialized AI agents and custom slash commands. It implements an ACE (Autonomous Cognitive Entity) framework with Generator-Reflector-Curator pattern for iterative improvement.
+- Commands live under `*/command/*.md` and define task behavior (e.g., plan, prepare-feature, commit, week_report).
+- Agents live under `*/agent/*.md` and provide specialized roles (e.g., spec authoring, plan/spec review, project search, web research, code review).
+- `opencode/opencode.json` configures formatters and MCP tools (e.g., DeepWiki MCP) used by OpenCode.
+- `transfer_from_claude.py` maps `claude_marat_ai/{agents,commands}` → `opencode/{agent,command}` and removes YAML frontmatter while preserving any existing target preamble.
+- `sync_opencode.sh` copies everything in `opencode/` to `~/.config/opencode/` so your OpenCode runner can pick it up.
 
-## Features
+## Quick Start
 
-### Custom Slash Commands
+1. Ensure prerequisites are installed:
+   - Bash (for the sync script)
+   - Python 3.12+
+   - `uv` (for the Python script shebang: `uv run --script`)
+   - Optional: `ruff` via `uvx` (used by formatters in `opencode.json`)
+2. Sync authored files into the OpenCode view:
+   - `./transfer_from_claude.py`
+3. Copy OpenCode config into your user config directory:
+   - `./sync_opencode.sh`
+4. Use your OpenCode runner/editor integration; it should discover commands/agents from `~/.config/opencode/`.
 
-- **`/marat_ai:prepare-feature <path>`** - Prepare minimal necessary documentation for a user-defined feature
-  - Analyzes feature requirements
-  - Performs parallel project search, web research, and spec creation
-  - Generates structured documentation in `docs/<feature-name>/`
+## Repository Structure
 
-- **`/marat_ai:plan <folder>`** - Create implementation plan from specifications
-  - Generates detailed implementation tasks with file references
-  - Includes architectural and data flow plans
-  - Adds testing strategies and library references
+```
+opencode/
+  command/
+    commit.md
+    plan.md
+    prepare-feature.md
+    week_report.md
+  agent/
+    plan-spec-reviewer.md
+    project-search.md
+    review.md
+    spec.md
+    web-research.md
+  opencode.json
 
-- **`/marat_ai:implement <path>`** - Implement plans using ACE-style adaptation
-  - Uses PLAYBOOK.md for storing learned patterns and strategies
-  - Follows Generator, Reflector, Curator cycle
-  - Automatically learns from failures and successes
-  - Generates trace logs for debugging
+claude_marat_ai/
+  commands/
+    commit.md
+    plan.md
+    prepare-feature.md
+    week_report.md
+  agents/
+    plan-spec-reviewer.md
+    project-search.md
+    spec.md
+    web-research.md
 
-- **`/marat_ai:commit`** - Auto-commit with smart branching
-  - Automatically creates feature branches from master
-  - Generates descriptive commit messages
-  - Proposes merge requests
+transfer_from_claude.py
+sync_opencode.sh
+```
 
-- **`/marat_ai:week_report`** - Prepare weekly management report
-  - Analyzes last week's changes
-  - Formats report for Slack posting
+## Commands (opencode/command)
 
-### Specialized Agents
+- `prepare-feature.md` — Prepare minimal documentation for a new feature; orchestrates project search, web research, and spec creation as parallel subagents, then organizes outputs under `docs/<feature-name>/`.
+- `plan.md` — Create a minimal implementation plan with only necessary tasks and concrete implementation details (file refs, interfaces, test strategy, etc.).
+- `commit.md` — Auto-commit with smart branching: stages changes, branches off `master` when needed, commits, and proposes opening an MR.
+- `week_report.md` — Draft a concise weekly management report and propose posting it to Slack (dry-run).
 
-- **curator** - Proposes minimal delta updates to the PLAYBOOK
-- **reflector** - Diagnoses implementation steps and extracts actionable insights
-- **project-search** - Searches the current project for relevant files and components
-- **spec** - Creates minimal specifications with user stories and test plans
-- **web-research** - Researches the web for relevant information
-- **review** - Reviews code changes
+## Agents (opencode/agent)
 
-## Installation
+- `spec.md` — Business-first minimal specifications: user stories, functional requirements, edge cases, and minimal end-to-end testing plan.
+- `plan-spec-reviewer.md` — Compares an implementation plan against the spec; reports gaps in user stories, requirements, edge cases, testing, and data flow.
+- `project-search.md` — Scans the codebase; outputs compact references with file:line links and minimal diagrams.
+- `web-research.md` — Research assistant; gathers focused external references and options with pros/cons.
+- `review.md` — Lightweight code review guidance over current uncommitted changes.
 
-### For Claude Code
+## Configuration (opencode/opencode.json)
 
-The plugin is already configured in `.claude-plugin/marketplace.json`. Claude Code will automatically load it from the `claude_marat_ai/` directory.
+- MCP: enables `deepwiki` remote MCP server for research/search.
+- Formatters: integrates `ruff` via `uvx` for `check --fix` and `format` on Python files (.py).
 
-### For OpenCode
+If you rely on formatters, ensure `uv` is installed and `uvx ruff` is available in your PATH.
 
-1. Transfer files to OpenCode format:
-   ```bash
-   uv run transfer_from_claude.py
-   ```
+## Typical Workflow
 
-2. Sync to OpenCode config directory:
-   ```bash
-   ./sync_opencode.sh
-   ```
+1. Author or edit sources in `claude_marat_ai/agents` and `claude_marat_ai/commands`.
+2. Run `./transfer_from_claude.py` to propagate changes to `opencode/` while removing authoring frontmatter.
+3. Run `./sync_opencode.sh` to update `~/.config/opencode/` with the latest commands, agents, and config.
+4. Invoke commands from your OpenCode runner or editor integration.
 
-## Development Workflow
+Notes:
+- The transfer script preserves an existing preamble in target files if present.
+- Folder names are normalized: `agents → agent`, `commands → command`.
 
-### Typical Feature Development Flow
+## Troubleshooting
 
-1. **Create feature idea**: Write a markdown file describing your feature in docs/<faeature-name> folder
-2. **Prepare documentation**: `/marat_ai:prepare-feature docs/<faeature-name>/idea.md`
-3. **Create implementation plan**: `/marat_ai:plan docs/<faeature-name>`
-4. **Implement**: `/marat_ai:implement docs/<faeature-name>/5_implementation_plan.md`
-5. **Commit**: `/marat_ai:commit`
-
-### ACE Framework
-
-The implementation command uses an ACE (Autonomous Cognitive Entity) framework:
-
-1. **Generator Phase**: Implements subtasks using relevant PLAYBOOK patterns
-2. **Reflector Phase**: Analyzes implementation, identifies errors and insights
-3. **Curator Phase**: Updates PLAYBOOK with new learnings
-4. **Grow-and-Refine**: Deduplicates and prunes PLAYBOOK entries
-
-The PLAYBOOK.md maintains:
-- `strategies_and_hard_rules` - Best practices and constraints
-- `apis_to_use_for_specific_information` - API patterns
-- `verification_checklist` - Testing and validation steps
-- `formulas_and_calculations` - Algorithms and logic
-- `failures_and_resolutions` - Known issues and solutions
-
-Each bullet tracks `helpful_count` and `harmful_count` for relevance ranking.
-
-## Scripts
-
-### transfer_from_claude.py
-
-Converts Claude Code plugin format to OpenCode format by:
-- Removing YAML frontmatter from commands and agents
-- Mapping folder names (agents�agent, commands�command)
-- Preserving OpenCode preambles if they exist
-
-### sync_opencode.sh
-
-Syncs the `opencode/` directory to `~/.config/opencode/`:
-- Creates target directories as needed
-- Replaces existing files
-
-## Requirements
-
-- Python 3.12+ (for scripts)
-- `uv` package manager
-- Claude Code or OpenCode
+- Command/agent not showing up:
+  - Re-run `./transfer_from_claude.py` and then `./sync_opencode.sh`
+  - Confirm files exist under `~/.config/opencode/`
+- Formatter errors:
+  - Ensure `uv` is installed; run `uvx ruff --version` to verify availability
+- DeepWiki MCP connectivity:
+  - Make sure your environment/network allows connecting to the configured SSE endpoint
 
 ## License
 
-This project is for personal use.
+No license file is provided in this repository. Add one if you plan to share or open source this project.
