@@ -6,5 +6,15 @@
       "url": "https://mcp.deepwiki.com/sse",
       "enabled": true
     }
+  },
+  "formatter": {
+    "uv-ruff-lint": {
+      "extensions": [".py"],
+      "command": ["uvx", "ruff", "check", "--fix", "$FILE"]
+    },
+    "uv-ruff-format": {
+      "extensions": [".py"],
+      "command": ["uvx", "ruff", "format", "$FILE"]
+    },
   }
 }
