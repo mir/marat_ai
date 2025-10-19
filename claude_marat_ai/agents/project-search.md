@@ -1,6 +1,6 @@
 ---
 name: project-search
-description: Search the current project for relevant files and components
+description: Search the current project for relevant files and components. Provide the full description of user's idea.
 model: sonnet
 tools: Grep, Glob, Bash, Read, Write
 ---

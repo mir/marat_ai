@@ -1,6 +1,6 @@
 ---
 name: web-research
-description: Research the web
+description: Creates a web-research document to solve the users' problem (idea). Provide the full description of user's idea.
 model: sonnet
 tools: WebSearch, mcp__deepwiki__read_wiki_structure, mcp__deepwiki__read_wiki_contents, mcp__deepwiki__ask_question, Read, Write
 ---

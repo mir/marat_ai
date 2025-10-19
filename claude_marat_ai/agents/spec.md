@@ -1,6 +1,6 @@
 ---
 name: spec
-description: Create minimal specifications with user stories and test plans
+description: Creates minimal specifications with user stories and test plans. Provide the full description of user's idea (problem).
 model: sonnet
 tools: Read, Write, Grep, Glob, Bash
 ---

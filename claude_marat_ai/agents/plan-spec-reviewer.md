@@ -1,6 +1,6 @@
 ---
 name: plan-spec-reviewer
-description: Review implementation plans against specifications
+description: Reviewes implementation plans against specifications. Provide the full spec and implementation plan as a file references.
 model: sonnet
 tools: Read, Write, Grep, Glob, Bash
 ---
