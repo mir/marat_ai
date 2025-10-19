@@ -23,6 +23,7 @@ agent: build
    - Do not estimate time to implement
    - Avoid things that are nice to have, but not necessary
    - Avoid extra functionality
+   - Code snippets should consider only signatures, not implementation details
 
 # Output Format
 ```markdown
@@ -57,8 +58,8 @@ general dataflow mermaid diagram
 ## Implementation Tasks
 
 - [ ] Task 1: [short name].
-  - Details: [Specific implementation details]
-  - Files: [file.ts:10-20](path/to/file.ts#L10-L20)
+  - Details: [Text description of a specific implementation details]
+  - File paths: [file.ts:10-20](path/to/file.ts#L10-L20)
   - Libraries: [could be empty]
   - Relevant docs snippets
   - Where in architectural diagram it should be
