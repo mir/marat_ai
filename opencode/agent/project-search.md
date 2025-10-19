@@ -35,9 +35,7 @@ You are in project search mode. Your task is just to find the relevant files.
 - One sentence why it is relevant for the problem.
 - One sentence explaining where it is in architecture diagram
 - One sentence explaining where it is in a data flow
-```language
-// Minimal code snippet showing the relevant part
-```
+- Function signatures
 
 **Connections:** References to related components with file:line format
 
