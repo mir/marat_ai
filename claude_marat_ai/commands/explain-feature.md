@@ -22,17 +22,7 @@ Create a Mermaid sequence diagram showing:
 Use this format:
 ```mermaid
 sequenceDiagram
-    actor User
-    participant Frontend
-    participant Backend
-    participant Database
-
-    User->>Frontend: Action
-    Frontend->>Backend: API Call
-    loop Streaming
-        Backend->>Frontend: Chunk
-    end
-    Backend->>Database: Save
+    ...
 ```
 
 ### 3. Complete Data Flow Diagram

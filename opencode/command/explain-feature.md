@@ -3,8 +3,6 @@ description: Prepare minimal necessary documentation for a user defined feature
 agent: build
 ---
 
-Create comprehensive technical documentation that explains the complete data flow for [FEATURE NAME].
-
 ## Output format:
 
 ### 1. Overview Section
@@ -23,17 +21,7 @@ Create a Mermaid sequence diagram showing:
 Use this format:
 ```mermaid
 sequenceDiagram
-    actor User
-    participant Frontend
-    participant Backend
-    participant Database
-
-    User->>Frontend: Action
-    Frontend->>Backend: API Call
-    loop Streaming
-        Backend->>Frontend: Chunk
-    end
-    Backend->>Database: Save
+    ...
 ```
 
 ### 3. Complete Data Flow Diagram

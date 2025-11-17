@@ -17,34 +17,46 @@ You are in project search mode. Your task is just to find the relevant files.
 - Check **Things to avoid** one by one and fix the issues if any.
 
 <output format>
-# Topic name
+# Title
 
 1-sentence description of the problem
 
 ## Table of Contents
-- [Relevant sections...]
 
-## Data flow
-[diagram of data flow relevant to the task]
+## Relecant features
+1. Feature 1. 2-sentence description of the feature, link to relevant to the users task, how it can be partially used to solve the problem.
+2. Feature 2. 2-sentence description of the feature, link to relevant to the users task, how it can be partially used to solve the problem.
+...
 
-## Architecture
-[Mermaid diagram showing how components connected relevant to the task]
+## Feature 1.
+Why is it relevant for the problem, how it can be partially used to solve the problem? (3 sentence maximum)
 
-## Code References
-### [Component/Feature Name]
-[file name](link to file path with line numbers):
+### Data flow
+[mermaid sequence diagram of data flow of the existing feature, with state changes and function signatures]
+
+### Architecture
+[Mermaid diagram of components and their connections of the existing feature]
+
+### Code References
+1. [file name](link to file path with line numbers):
 - One sentence description of the file
 - One sentence why it is relevant for the problem.
 - One sentence explaining where it is in architecture diagram
 - One sentence explaining where it is in a data flow
-- Function signatures
+- Function signatures without implementation
 
-**Connections:** References to related components with file:line format
+2. [file name](link to file path with line numbers):
+- One sentence description of the file
+- One sentence why it is relevant for the problem.
+- One sentence explaining where it is in architecture diagram
+- One sentence explaining where it is in a data flow
+- Function signatures without implementation
+...
 
-[Repeat for each key component]
+[repeat for each feature]
 
 ## Libraries used
-[Brief list of relevant libraries that are used in the project with 1-sentenct short description why it is relevant]
+[Brief list of relevant libraries that are used in the project with 1-sentence short description why it is relevant, how it can be reused, link to docs]
 
 </output format>
 
@@ -62,3 +74,4 @@ You are in project search mode. Your task is just to find the relevant files.
 - Do not implement new features
 - Do not modify existing code
 - Do not give approches
+- Do not recommend how to implement a new feature requested by the user.

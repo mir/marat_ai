@@ -32,27 +32,38 @@ allowed-tools: Grep, Bash(grep:*), Glob, Bash(glob:*), Bash(find:*), Bash(ls:*),
 # TOC
 ...
 
-# Implementation Plan: [Feature Name]
+# [Feature Name]
 The original idea reformulated in an easy to understand, clear, and consise way.
 
 ## Architectural plan
-### Frontend
-Mermaid diagram
-### Backend
-Mermaid diagram
+- How the existing features will be reused (if any)
+- Which components will be added to the existing architecture (if any)
+- Which components will be removed from the existing architecture (if any)
+- Any other changes to the architecture (e.g., refactoring, major feature additions)
 
-### text descrition of the architecure
+3 sentences max for each point in the architectural plan (less is better)
+
+### Frontend (if any changes required)
+Mermaid diagram of connected components
+
+### Backend (if any changes required)
+Mermaid diagram of connected components
+
+### Database (if any changes required)
+Mermaid diagram of tables and relations
 
 ## Data flow plan
-general dataflow mermaid diagram
+Full Mermaid sequence diagram
 
 ### User story 1 data flow.
 - text description of the step of the data flow
   - file reference
-  - minimal code snippet 8 lines max
+  - minimal code snippet with function signature
+  - state changes (if any)
 - text description of the step of the data flow
   - file reference
-  - minimal code snippet 8 lines max
+  - minimal code snippet with function signature
+  - state changes (if any)
 
 [repeat for other user stories]
 
@@ -61,15 +72,14 @@ general dataflow mermaid diagram
 - [ ] Task 1: [short name].
   - Details: [Text description of a specific implementation details]
   - File paths: [file.ts:10-20](path/to/file.ts#L10-L20)
-  - Libraries: [could be empty]
-  - Relevant docs snippets
+  - Libraries docs: [snippet from the library docs, relevant to the task]  
   - Where in architectural diagram it should be
   - Where in data flow it should be
   - Testing strategy (optional):
     - Test scenario
     - How to invoke a command to run tests using AGENTS.md or CLAUDE.md
 
-[repeat for other tasks]
+[repeat for other task, no more than 6 tasks]
 
 # Summary
 Which tasks can be run in parallel

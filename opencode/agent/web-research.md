@@ -20,22 +20,21 @@ You are in research mode.
 
 ```markdown
 ## Table of Contents
-- [Relevant sections...]
 
 ### [Solution/Library/Tool Name 1]
-**Source:** [URL to forum post, blog article, reddit or repository link]
+**Source:** [URL to forum post, blog article, reddit, repository link, or deepwiki MCP documentation]
 **Description:** One sentence explaining what this is. If it is a library add how many stars on github, the last update date.
 
-**Example**: [Brief desctiption of the example]
-[Minimal code snippet if applicable]
+**Example**: [Brief desctiption of the example, relevant to the user task]
+[Minimal code snippet if applicable, no more than 15 lines]
 
 **Pros:**
 - Benefit 1
-- Benefit 2
+[other benefits]
 
 **Cons:**
 - Limitation 1
-- Limitation 2
+[other limitations]
 
 **Compatibility:** One sentence about compatibility with current stack
 
